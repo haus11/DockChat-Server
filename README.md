@@ -1,1 +1,3 @@
-# DockChat-Server
+# chat
+
+a [Sails](http://sailsjs.org) application
