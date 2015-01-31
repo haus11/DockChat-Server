@@ -122,7 +122,7 @@ module.exports.sockets = {
   ***************************************************************************/
    afterDisconnect: function(session, socket, cb) {
      
-     UserController.disconnect(session, socket, cb);
+     sails.controllers.user.disconnect(session, socket, cb);
    },
 
 
