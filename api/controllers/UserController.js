@@ -49,22 +49,19 @@ module.exports = {
     
     authenticate: function(req, res) {
 
-        console.log(req.session);
         if(typeof req.session !== 'undefined' && typeof req.session.user !== 'undefined') {
 
             req.session.authenticated = true;
             
             SessionService.addUserSocket(req.socket, req.session.user);
             sails.sockets.emit(SessionService.getUserSockets(req.socket), EventService.USER_RECONNECTED, req.session.user);
-            console.log('A');
-            console.log(req.session);
+            
             return res.json(req.session.user);
         }
         else {
             
             req.session.authenticated = true;
-            console.log('B');
-            console.log(req.session);
+            
             return res.json({});
         }
     },
@@ -73,6 +70,7 @@ module.exports = {
         
         if(typeof session.user !== 'undefined') {
             
+            console.log(session);
             sails.sockets.emit(SessionService.getUserSockets(socket), EventService.USER_DISCONNECTED, session.user);
             SessionService.removeUserSocket(session.user);
         }
