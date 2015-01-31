@@ -69,7 +69,7 @@ module.exports = {
     disconnect: function(session, socket, cb) {
         
         if(typeof session.user !== 'undefined') {
-            console.log('called disconnect');
+
             sails.sockets.emit(SessionService.getUserSockets(socket), EventService.USER_DISCONNECTED, session.user);
             SessionService.removeUserSocket(session.user);
         }
