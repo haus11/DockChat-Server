@@ -3,7 +3,7 @@ module.exports = {
     
     publish: function (message) {
 
-        User.findOrCreate({isServer: true, username: ConfigService.SERVER_USERNAME}, {isServer: true, username: ConfigService.SERVER_USERNAME}).exec(function (error, serveruser) {
+        User.findOrCreate({isServer: true, username: ConfigService.SERVER_USERNAME}, {isServer: true, username: ConfigService.SERVER_USERNAME}).populate('from').exec(function (error, serveruser) {
             
             if(!error) {
                 
