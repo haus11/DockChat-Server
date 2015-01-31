@@ -81,7 +81,7 @@ module.exports = {
         if(typeof session.user !== 'undefined') {
             
             sails.sockets.emit(SessionService.getUserSockets(socket), EventService.USER_DISCONNECTED, session.user);
-            SessionService.removePlayerSocket(session.user);
+            SessionService.removeUserSocket(session.user);
         }
         
         delete session.authenticated;
