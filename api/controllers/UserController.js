@@ -40,7 +40,7 @@ module.exports = {
                     
                     req.session.user = user;
                     SessionService.addUserSocket(req.socket, user);
-                    console.log(req.session);
+
                     sails.sockets.emit(SessionService.getUserSockets(req.socket), EventService.USER_CREATED, user);
                     
                     return res.json(user);
@@ -86,9 +86,8 @@ module.exports = {
             SessionService.removeUserSocket(session.user);
         }
         
-        delete session.authenticated;
-        delete session.user;
-        
+        session.authenticated = false;
+
         return cb();
     }
 	
