@@ -12,6 +12,7 @@ module.exports = {
      */
     
     USER_CREATED            : 'user:create',
-    USER_DISCONNECTED       : 'user:disconnect'
+    USER_DISCONNECTED       : 'user:disconnect',
+    USER_RECONNECTED        : 'user:reconnect'
     
 };
