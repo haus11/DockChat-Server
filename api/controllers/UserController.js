@@ -14,6 +14,11 @@ module.exports = {
     
     changeUsername: function(value, req, res) {
         
+        if(value === ConfigService.SERVER_USERNAME) {
+            
+            return res.badRequest({message: 'This name is reserved'});
+        }
+        
         User.update({id: req.session.user.id}, {username: value}).exec(function(error, userArray){
             
             if(error) {
@@ -50,6 +55,11 @@ module.exports = {
             return res.badRequest({message: 'You already got a session, so use it!'});
         }
         
+        if(username === ConfigService.SERVER_USERNAME) {
+            
+            return res.badRequest({message: 'This name is reserved'});
+        }
+        
         if(typeof username !== 'undefined') {
             
             User.create({username: username}).exec(function(error, user) {
@@ -58,6 +68,8 @@ module.exports = {
                     
                     req.session.user = user;
                     SessionService.addUserSocket(req.socket, user);
+                    
+                    CommandService.publish(user.username + ' has joined the server');
 
                     sails.sockets.emit(SessionService.getUserSockets(req.socket), EventService.USER_CREATED, user);
                     
@@ -82,6 +94,8 @@ module.exports = {
 
             req.session.authenticated = true;
             
+            CommandService.publish(req.session.user.username + ' reconnected to server');
+            
             SessionService.addUserSocket(req.socket, req.session.user);
             sails.sockets.emit(SessionService.getUserSockets(req.socket), EventService.USER_RECONNECTED, req.session.user);
             
@@ -99,6 +113,8 @@ module.exports = {
         
         if(typeof session.user !== 'undefined') {
 
+            CommandService.publish(session.user.username + ' disconnected from server');
+            
             sails.sockets.emit(SessionService.getUserSockets(socket), EventService.USER_DISCONNECTED, session.user);
             SessionService.removeUserSocket(session.user);
         }
