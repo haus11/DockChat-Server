@@ -125,7 +125,8 @@ module.exports.sockets = {
      sails.controllers.user.disconnect(session, socket, cb);
    },
 
-
+    pingTimeout: 10000,
+    pingInterval: 10000
 
 
 
