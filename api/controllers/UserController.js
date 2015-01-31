@@ -60,6 +60,7 @@ module.exports = {
     
     authenticate: function(req, res) {
         
+        console.log(req.session);
         if(typeof req.session !== 'undefined' && typeof req.session.user !== 'undefined') {
 
             req.session.authenticated = true;
