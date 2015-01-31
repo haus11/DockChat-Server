@@ -1,4 +1,4 @@
-module.exports = function isSocket (req, res, next) {
+module.exports = function (req, res, next) {
     
     if(req.isSocket) {
         

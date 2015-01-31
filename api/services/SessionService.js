@@ -9,6 +9,13 @@ module.exports = {
         this.userObjects['USER' + user.id] = user;
     },
     
+    updateUserObject: function(user) {
+        
+        if (this.userSockets.hasOwnProperty('USER' + user.id)) {
+            return this.userObjects['USER' + user.id] = user;
+        }
+    },
+    
     getUserSocket: function (user) {
 
         if (this.userSockets.hasOwnProperty('USER' + user.id)) {

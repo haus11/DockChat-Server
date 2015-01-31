@@ -11,6 +11,32 @@ module.exports = {
             
         return res.json(SessionService.getUserObjects());
     },
+    
+    changeUsername: function(value, req, res) {
+        
+        User.update({id: req.session.user.id}, {username: value}).exec(function(error, userArray){
+            
+            if(error) {
+                
+                return res.badRequest(error);
+            }
+            
+            var user = userArray[0];
+                    
+            if(typeof user !== 'undefined') {
+
+                SessionService.updateUserObject(user);
+                req.session.user = user;
+                
+                sails.sockets.emit(SessionService.getUserSockets(), EventService.USER_UPDATED, user);
+                return res.json({command: true, message: 'You changed your username'});
+            }
+            else {
+                
+                return res.badRequest({message: 'No user found for this session'});
+            }
+        });
+    },
         
     create: function(req, res) {
         

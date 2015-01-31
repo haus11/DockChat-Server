@@ -57,6 +57,6 @@ module.exports.policies = {
     
     MessageController: {
         'all': ['isSocket', 'sessionAuth', 'isUser'],
-        'create' : ['isSocket', 'sessionAuth', 'isUser']
+        'create' : ['isSocket', 'sessionAuth', 'isUser', 'isCommand']
     }
 };
