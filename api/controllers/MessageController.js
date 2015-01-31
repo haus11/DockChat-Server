@@ -12,7 +12,7 @@ module.exports = {
             var page = req.param('page') || 1;
             var limit = req.param('limit') || 20;
             
-            Message.find().paginate({page: page, limit: limit, sort: 'createdAt DESC'}).exec(function(error, messages){
+            Message.find({sort: 'createdAt DESC'}).paginate({page: page, limit: limit}).exec(function(error, messages){
                 
                 if(error) {
                     
