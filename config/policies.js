@@ -48,4 +48,15 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+        
+    UserController: {
+        'authenticate': ['isSocket'],
+        'create': ['isSocket', 'sessionAuth'],
+        'all': ['isSocket', 'sessionAuth']
+    },
+    
+    MessageController: {
+        'all': ['isSocket', 'sessionAuth'],
+        'create' : ['isSocket', 'sessionAuth']
+    }
 };

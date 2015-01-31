@@ -33,7 +33,13 @@ module.exports.routes = {
   ***************************************************************************/
 
   'GET     /messages'            : 'MessageController.all',
-  'POST    /messages'            : 'MessageController.create'
+  'POST    /messages'            : 'MessageController.create',
+  
+  'GET     /user'               : 'UserController.all',
+  'POST    /user'               : 'UserController.create',
+  'POST    /user/authenticate'  : 'UserController.authenticate'
+  
+  //'PUT     /user/:id'           : 'UserController.update'
 
   /***************************************************************************
   *                                                                          *

@@ -6,20 +6,6 @@
  */
 
 module.exports = {
-	
-        
-        send: function(req, res) {
-            
-            var text = req.param('text');
-            
-            if(typeof text !== 'undefined' && text !== null && text.length > 0) {
-                
-            }
-            else {
-                
-                return res.badRequest({message: 'You forgot some text, faggot!'});
-            }
-        },
         
         all: function(req, res) {
             
@@ -27,11 +13,9 @@ module.exports = {
                 
                 if(error) {
                     
-                    return res.negotiate(error);
+                    return res.badRequest(error);
                 }
                 else {
-                    
-                    Message.watch(req.socket);
                     
                     return res.json(messages);
                 }
@@ -42,7 +26,7 @@ module.exports = {
         create: function(req, res) {
             
             var text = req.param('text');
-            console.log(req.params);
+
             if(typeof text !== 'undefined' && text !== null && text.length > 0) {
                 
                 Message.create({text: text}).exec(function(error, message) {
@@ -53,7 +37,7 @@ module.exports = {
                     }
                     else {
                         
-                        Message.publishCreate(message);
+                        sails.sockets.emit(SessionService.getUserSockets(req.socket), EventService.MESSAGE_CREATED, message);
                         
                         return res.json(message);
                     }
@@ -62,7 +46,7 @@ module.exports = {
             }
             else {
                 
-                return res.badRequest({message: 'You forgot some text, faggot!'});
+                return res.badRequest({message: 'You forgot some text!'});
             }
         }
 };
