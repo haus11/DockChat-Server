@@ -36,14 +36,14 @@ module.exports = {
                 }
                 else
                 {
-                    return req.badRequest(error);
+                    return res.badRequest(error);
                 }
             });
             
         }
         else {
             
-            return req.badRequest({message: 'You have to specify a username!'});
+            return res.badRequest({message: 'You have to specify a username!'});
         }
     },
     
