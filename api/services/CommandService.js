@@ -1,7 +1,7 @@
 module.exports = {
     
     
-    publish: function (message) {
+    publish: function (message, socket) {
 
         User.findOrCreate({isServer: true, username: ConfigService.SERVER_USERNAME}, {isServer: true, username: ConfigService.SERVER_USERNAME}).exec(function (error, serveruser) {
             
@@ -23,7 +23,7 @@ module.exports = {
                             }
                             else {
                                 
-                                sails.sockets.emit(SessionService.getUserSockets(), EventService.MESSAGE_CREATED, populatedMessage);
+                                sails.sockets.emit(SessionService.getUserSockets(socket), EventService.MESSAGE_CREATED, populatedMessage);
                             }
                         });
                     }

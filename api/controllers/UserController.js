@@ -69,7 +69,7 @@ module.exports = {
                     req.session.user = user;
                     SessionService.addUserSocket(req.socket, user);
                     
-                    CommandService.publish(user.username + ' has joined the server');
+                    CommandService.publish(user.username + ' has joined');
 
                     sails.sockets.emit(SessionService.getUserSockets(req.socket), EventService.USER_CREATED, user);
                     
@@ -89,12 +89,17 @@ module.exports = {
     },
     
     authenticate: function(req, res) {
+        
+        if(req.session.authenticated) {
+            
+            return res.badRequest({message: 'Only one session is allowed!'});
+        }
 
         if(typeof req.session !== 'undefined' && typeof req.session.user !== 'undefined') {
 
             req.session.authenticated = true;
             
-            CommandService.publish(req.session.user.username + ' reconnected to server');
+            CommandService.publish(req.session.user.username + ' has joined');
             
             SessionService.addUserSocket(req.socket, req.session.user);
             sails.sockets.emit(SessionService.getUserSockets(req.socket), EventService.USER_RECONNECTED, req.session.user);
@@ -113,7 +118,7 @@ module.exports = {
         
         if(typeof session.user !== 'undefined') {
 
-            CommandService.publish(session.user.username + ' disconnected from server');
+            CommandService.publish(session.user.username + ' has left');
             
             sails.sockets.emit(SessionService.getUserSockets(socket), EventService.USER_DISCONNECTED, session.user);
             SessionService.removeUserSocket(session.user);
