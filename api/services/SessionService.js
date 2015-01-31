@@ -22,11 +22,12 @@ module.exports = {
         
         for(var index in this.userSockets) {
 
-            var user = this.userSockets[index].session.user;
+            var socket = this.userSockets[index];
+            console.log(socket.session);
             
-            if(typeof user !== 'undefined') {
+            if(typeof socket.session !== 'undefined' && typeof socket.session.user !== 'undefined') {
                 
-                userArray.push(user);
+                userArray.push(socket.session.user);
             }
         }
         
