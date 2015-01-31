@@ -9,7 +9,10 @@ module.exports = {
         
         all: function(req, res) {
             
-            Message.find().exec(function(error, messages){
+            var page = req.param('page') || 1;
+            var limit = req.param('limit') || 20;
+            
+            Message.find().paginate({page: page, limit: limit}).exec(function(error, messages){
                 
                 if(error) {
                     
