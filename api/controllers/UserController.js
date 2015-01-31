@@ -9,18 +9,7 @@ module.exports = {
     
     all: function(req, res) {
             
-        User.find().exec(function(error, user){
-
-            if(error) {
-
-                return res.badRequest(error);
-            }
-            else {
-                
-                return res.json(user);
-            }
-
-        });
+        return res.json(SessionService.getUser());
     },
         
     create: function(req, res) {

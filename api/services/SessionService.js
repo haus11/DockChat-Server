@@ -16,6 +16,23 @@ module.exports = {
         return null;
     },
     
+    getUser: function() {
+        
+        var userArray = [];
+        
+        for(var index in this.userSockets) {
+
+            var user = this.userSockets[index].session.user;
+            
+            if(typeof user !== 'undefined') {
+                
+                userArray.push(user);
+            }
+        }
+        
+        return userArray;
+    },
+    
     getUserSockets: function (socket) {
         
         var sockets = [];
