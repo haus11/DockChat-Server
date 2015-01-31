@@ -20,15 +20,18 @@ module.exports = {
                 
                 return res.badRequest(error);
             }
-            
+
             var user = userArray[0];
                     
             if(typeof user !== 'undefined') {
-
+                
+                CommandService.publish(req.session.user.username + ' changed his name to ' + user.username);
+                
                 SessionService.updateUserObject(user);
                 req.session.user = user;
                 
-                sails.sockets.emit(SessionService.getUserSockets(), EventService.USER_UPDATED, user);
+                sails.sockets.emit(SessionService.getUserSockets(), EventService.USER_UPDATED, user);               
+                
                 return res.json({command: true, message: 'You changed your username'});
             }
             else {

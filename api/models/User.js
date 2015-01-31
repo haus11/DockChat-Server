@@ -25,6 +25,11 @@ module.exports = {
             required: false
         },
         
+        isServer: {
+            type: 'boolean',
+            defaultsTo: false
+        },
+        
         deleted: {
             type: 'boolean',
             defaultsTo: false
