@@ -22,8 +22,7 @@ module.exports = {
         
         from: {
             model: 'user',
-            type: 'json',
-            required: false
+            required: true
         },
         
         to: {

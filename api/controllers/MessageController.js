@@ -12,7 +12,7 @@ module.exports = {
             var page = req.param('page') || 1;
             var limit = req.param('limit') || 20;
             
-            Message.find({sort: 'createdAt DESC'}).paginate({page: page, limit: limit}).exec(function(error, messages){
+            Message.find({sort: 'createdAt DESC'}).paginate({page: page, limit: limit}).populate('from').exec(function(error, messages){
                 
                 if(error) {
                     
@@ -32,17 +32,27 @@ module.exports = {
 
             if(typeof text !== 'undefined' && text !== null && text.length > 0) {
                 
-                Message.create({text: text}).exec(function(error, message) {
+                Message.create({text: text, from: req.session.user.id}).exec(function(error, message) {
                     
                     if(error) {
                         
-                        return res.negotiate(error);
+                        return res.badRequest(error);
                     }
                     else {
 
-                        sails.sockets.emit(SessionService.getUserSockets(), EventService.MESSAGE_CREATED, message);
+                        Message.findOne({id: message.id}).populate('from').exec(function(error, populatedMessage) {
+                            
+                            if(error) {
+                                
+                                return res.badRequest(error);
+                            }
+                            else {
+                                
+                                sails.sockets.emit(SessionService.getUserSockets(), EventService.MESSAGE_CREATED, populatedMessage);
                         
-                        return res.json(message);
+                                return res.json(message);
+                            }
+                        });
                     }
                 });
                 
