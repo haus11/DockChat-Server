@@ -56,7 +56,7 @@ module.exports = {
             req.session.authenticated = true;
             
             SessionService.addUserSocket(req.socket, req.session.user);
-            sails.sockets.emit(SessionService.getUserSockets(), EventService.USER_RECONNECTED, req.session.user);
+            sails.sockets.emit(SessionService.getUserSockets(req.socket), EventService.USER_RECONNECTED, req.session.user);
             
             return res.json(req.session.user);
         }
