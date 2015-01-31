@@ -1,10 +1,12 @@
 module.exports = {
     
     userSockets: {},
+    userObjects: {},
     
     addUserSocket: function (socket, user) {
 
         this.userSockets['USER' + user.id] = socket;
+        this.userObjects['USER' + user.id] = user;
     },
     
     getUserSocket: function (user) {
@@ -16,19 +18,22 @@ module.exports = {
         return null;
     },
     
-    getUser: function() {
+    getUserObject: function (user) {
+
+        if (this.userObjects.hasOwnProperty('USER' + user.id)) {
+            return this.userObjects['USER' + user.id];
+        }
+
+        return null;
+    },
+    
+    getUserObjects: function() {
         
         var userArray = [];
         
-        for(var index in this.userSockets) {
+        for(var index in this.userObjects) {
 
-            var socket = this.userSockets[index];
-            console.log(socket.session);
-            
-            if(typeof socket.session !== 'undefined' && typeof socket.session.user !== 'undefined') {
-                
-                userArray.push(socket.session.user);
-            }
+            userArray.push(this.userObjects[index]);
         }
         
         return userArray;
@@ -54,6 +59,10 @@ module.exports = {
 
         if (this.userSockets.hasOwnProperty('USER' + user.id)) {
             delete this.userSockets['USER' + user.id];
+        }
+        
+        if (this.userObjects.hasOwnProperty('USER' + user.id)) {
+            delete this.userObjects['USER' + user.id];
         }
     },
     

@@ -9,7 +9,7 @@ module.exports = {
     
     all: function(req, res) {
             
-        return res.json(SessionService.getUser());
+        return res.json(SessionService.getUserObjects());
     },
         
     create: function(req, res) {
