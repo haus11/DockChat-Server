@@ -39,8 +39,8 @@ module.exports = {
                         return res.negotiate(error);
                     }
                     else {
-                        
-                        sails.sockets.emit(SessionService.getUserSockets(req.socket), EventService.MESSAGE_CREATED, message);
+
+                        sails.sockets.emit(SessionService.getUserSockets(), EventService.MESSAGE_CREATED, message);
                         
                         return res.json(message);
                     }

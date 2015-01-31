@@ -21,7 +21,7 @@ module.exports = {
         var sockets = [];
         
         for(var index in this.userSockets) {
-            
+
             if(typeof socket !== 'undefined' && socket.id === this.userSockets[index].id) {
                 continue;
             }

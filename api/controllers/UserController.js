@@ -40,7 +40,7 @@ module.exports = {
                     
                     req.session.user = user;
                     SessionService.addUserSocket(req.socket, user);
-                    
+                    console.log(req.session);
                     sails.sockets.emit(SessionService.getUserSockets(req.socket), EventService.USER_CREATED, user);
                     
                     return res.json(user);
@@ -59,8 +59,9 @@ module.exports = {
     },
     
     authenticate: function(req, res) {
-        
-        console.log(req.session);
+
+        req.session.cookie.test = 'sadsad';
+       
         if(typeof req.session !== 'undefined' && typeof req.session.user !== 'undefined') {
 
             req.session.authenticated = true;
