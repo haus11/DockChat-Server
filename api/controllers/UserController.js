@@ -38,7 +38,7 @@ module.exports = {
                 
                 if(!error) {
                     
-                    res.session.user = user;
+                    req.session.user = user;
                     SessionService.addUserSocket(user);
                     
                     sails.sockets.emit(SessionService.getUserSockets(req.socket), EventService.USER_CREATED, user);
