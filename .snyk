@@ -1,0 +1,60 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.7.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:ms:20170412':
+    - sails > skipper > connect > morgan > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > connect > connect-timeout > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > connect > express-session > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > connect > finalhandler > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > connect > morgan > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > connect > serve-index > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > connect > body-parser > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > connect > compression > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > connect > connect-timeout > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > connect > serve-static > send > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > express > connect > compression > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > skipper > connect > compression > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > express > connect > morgan > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > connect > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > express > connect > serve-index > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > skipper > connect > serve-index > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > connect > serve-static > send > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > sails-hook-sockets > socket.io > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > sails-hook-sockets > socket.io-client > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > sails-hook-sockets > socket.io > socket.io-client > engine.io-client > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > skipper > skipper-disk > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > sails-hook-sockets > socket.io > engine.io > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > sails-hook-sockets > socket.io > socket.io-parser > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > sails-hook-sockets > socket.io > socket.io-client > socket.io-parser > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > sails-hook-sockets > socket.io > socket.io-client > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > sails-hook-sockets > socket.io > socket.io-adapter > debug > ms:
+        patched: '2017-05-23T06:36:10.387Z'
+    - sails > connect > serve-favicon > ms:
+        patched: '2017-05-23T06:36:10.387Z'
