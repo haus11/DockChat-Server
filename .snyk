@@ -110,6 +110,10 @@ patch:
         patched: '2017-10-19T08:42:00.059Z'
     - sails > @sailshq/express > @sailshq/connect > serve-favicon > ms:
         patched: '2017-10-19T08:42:00.059Z'
+    - grunt-contrib-watch > tiny-lr > debug > ms:
+        patched: '2017-10-19T08:42:26.047Z'
+    - grunt-contrib-watch > tiny-lr > body-parser > debug > ms:
+        patched: '2017-10-19T08:42:26.047Z'
   'npm:debug:20170905':
     - sails > @sailshq/express > @sailshq/connect > morgan > debug:
         patched: '2017-10-03T06:36:11.200Z'
@@ -171,6 +175,10 @@ patch:
         patched: '2017-10-03T06:36:11.200Z'
     - sails > skipper > body-parser > debug:
         patched: '2017-10-03T06:36:11.200Z'
+    - grunt-contrib-watch > tiny-lr > debug:
+        patched: '2017-10-19T08:42:26.047Z'
+    - grunt-contrib-watch > tiny-lr > body-parser > debug:
+        patched: '2017-10-19T08:42:26.047Z'
   'npm:ejs:20161128':
     - sails > ejs:
         patched: '2017-10-19T08:42:00.059Z'
