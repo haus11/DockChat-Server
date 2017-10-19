@@ -58,6 +58,58 @@ patch:
         patched: '2017-05-23T06:36:10.387Z'
     - sails > connect > serve-favicon > ms:
         patched: '2017-05-23T06:36:10.387Z'
+    - sails > serve-favicon > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > serve-static > send > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > @sailshq/express > send > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > skipper > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > sails-hook-sockets > socket.io > socket.io-adapter > socket.io-parser > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > compression > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > express-session > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > grunt-contrib-watch > tiny-lr > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > method-override > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > serve-static > send > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > @sailshq/express > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > @sailshq/express > send > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > @sailshq/express > @sailshq/connect > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > grunt-contrib-watch > tiny-lr > body-parser > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > @sailshq/express > @sailshq/connect > compression > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > @sailshq/express > @sailshq/connect > connect-timeout > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > @sailshq/express > @sailshq/connect > express-session > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > @sailshq/express > @sailshq/connect > finalhandler > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > @sailshq/express > @sailshq/connect > morgan > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > @sailshq/express > @sailshq/connect > serve-index > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > @sailshq/express > @sailshq/connect > @sailshq/body-parser > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > @sailshq/express > @sailshq/connect > serve-static > send > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > @sailshq/express > @sailshq/connect > connect-timeout > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > @sailshq/express > @sailshq/connect > serve-static > send > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > skipper > body-parser > debug > ms:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > @sailshq/express > @sailshq/connect > serve-favicon > ms:
+        patched: '2017-10-19T08:42:00.059Z'
   'npm:debug:20170905':
     - sails > @sailshq/express > @sailshq/connect > morgan > debug:
         patched: '2017-10-03T06:36:11.200Z'
@@ -119,3 +171,17 @@ patch:
         patched: '2017-10-03T06:36:11.200Z'
     - sails > skipper > body-parser > debug:
         patched: '2017-10-03T06:36:11.200Z'
+  'npm:ejs:20161128':
+    - sails > ejs:
+        patched: '2017-10-19T08:42:00.059Z'
+  'npm:minimatch:20160620':
+    - sails > grunt-sync > glob > minimatch:
+        patched: '2017-10-19T08:42:00.059Z'
+  'npm:negotiator:20160616':
+    - sails > @sailshq/express > @sailshq/connect > compression > accepts > negotiator:
+        patched: '2017-10-19T08:42:00.059Z'
+    - sails > @sailshq/express > @sailshq/connect > serve-index > accepts > negotiator:
+        patched: '2017-10-19T08:42:00.059Z'
+  'npm:qs:20140806-1':
+    - grunt-contrib-watch > tiny-lr-fork > qs:
+        patched: '2017-10-19T08:42:00.059Z'
