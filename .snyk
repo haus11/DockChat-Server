@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.7.1
+version: v1.13.5
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -193,3 +193,48 @@ patch:
   'npm:qs:20140806-1':
     - grunt-contrib-watch > tiny-lr-fork > qs:
         patched: '2017-10-19T08:42:00.059Z'
+  SNYK-JS-LODASH-450202:
+    - snyk > inquirer > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - snyk > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - grunt-contrib-less > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - grunt-contrib-watch > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - sails > grunt-contrib-less > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - snyk > snyk-nuget-plugin > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - snyk > snyk-nodejs-lockfile-parser > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - grunt > grunt-legacy-log > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - sails > grunt-contrib-uglify > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - snyk > snyk-mvn-plugin > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - snyk > snyk-config > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - grunt-contrib-coffee > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - sails > grunt > grunt-legacy-log > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - sails > skipper > async > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - sails > sails-generate > sails-generate-generator > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - grunt-contrib-watch > gaze > globule > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - snyk > snyk-php-plugin > @snyk/composer-lockfile-parser > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
+    - sails > grunt-contrib-watch > gaze > globule > lodash:
+        patched: '2019-07-09T02:42:19.096Z'
