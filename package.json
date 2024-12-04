@@ -24,7 +24,7 @@
     "sails": "~1.5.7",
     "sails-disk": "~0.10.0",
     "sails-mysql": "^0.11.0",
-    "snyk": "^1.44.0"
+    "snyk": "^1.192.4"
   },
   "scripts": {
     "start": "node app.js",
